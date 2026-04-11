@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+<meta charset="UTF-8">
+<title>worker</title>
+</head>
+<body>
+<!-- 导航栏 -->
+
+<nav>
+</nav>
+
+<!-- 内容板块 -->
+<section id="products">
+<h2>utau</h2>
+
+<div class="product">
+
+<h3>简记</h3>
+
+<p>
+OpenUtau
+<br/>
+OpenUTAU是由杉田朗主导、由 UTAU 社区为 UTAU 社区打造的免费开源歌声合成编辑器，
+以实现UTAU框架与引擎的现代化而开发
+<br/>
+加入了多音轨、伴奏、自动预渲染等功能。
+<br/>
+这个项目由大量的志愿者开发，而非由公司或个人开发的。OpenUTAU使用C# .net开发，支持Windows、Mac和Linux操作系统。
+<br/>
+OpenUTAU可以直接加载UTAU语音库和部分引擎及插件。
+OpenUTAU也可加载Vogen、ENUNU/NNSVS、DiffSinger和VOICEVOX的语音库。
+OpenUTAU已公开引擎支持文档，
+任何潜在的新歌声合成引擎都可以采用OpenUTAU作为其用户界面
+</p>
+
+
+<h3>与UTAU的差异</h3>
+OpenUtau 支持多个人声轨道以及音轨，以便轻松布局和实时预览大型项目。
+<br/>
+OpenUtau 在编辑时在后台预渲染人声轨道，允许用户快速预览他们的作品。
+◦对于喜欢按需渲染人声的用户，可以在 Preferences 菜单中禁用此功能。
+<br/>
+<br/>
+OpenUtau 有两种渲染模式(utau-singers)。
+<br/>
+CLASSIC 渲染器允许用户使用他们选择的 resampler 或 wavtool 对人声进行重采样。OpenUtau 与大多数 UTAU 重采样器和 wavtools 开箱即用。
+<br/>
+WORLDLINE-R 是 OpenUtau 独有的渲染器，它将本机重采样器和 wavtool 组合到一个模式中。使用 WORLDLINE-R，用户可以使用类似于传统人声合成器软件的基于曲线的专有参数，从而获得更动态的人声。
+<br/>
+<br/>
+音素器：
+<br/>
+音素器增加了以类似于现代人声合成器软件的方式将歌词实时转换为音素的能力。
+<br/>
+输入到音符中的歌词会自动转换为语音库中使用的音素，用户无需费力拆音。
+<br/>
+各种音素器可用于多种语言和语音库类型（VCV、CVVC、VCCV、Arpasing 等）。
+<br/>
+<br/>
+子音色：
+<br/>
+子音色允许您基于每个音符切换声部库样式（附加），并允许您为声部库录制的人声范围分配后缀。
+<br/>
+可以通过在 Singer 编辑器中将声部库的附加和人声范围分配给新的声部颜色来定义子音色。在编辑过程中，可以通过 Piano Roll 中的 CLR 参数来选择子音色。
+<br/>
+OpenUtau 不支持按照 UTAU 的要求在歌词中添加附加或后缀。渲染人声时，OpenUtau 会自动处理子音色。
+<br/>
+<br/>
+表情面板：
+<br/>
+音符音量、音符标志、引擎（重采样器）切换、声部颜色等都可以在“钢琴卷帘”窗口底部的“表情”面板中轻松编辑。
+<br/>
+与 UTAU 不同，标志不必通过在单独的菜单中手动键入来设置。相反，可以通过拖动 Expressions 面板中的滑块轻松更改音符标志。播放工程时可以立即听到旗帜的效果。
+可以创建各种格式的自定义表达式。
+<br/>
+OpenUtau 在用户界面中支持多种语言，并且可以在 Preferences 菜单中轻松更改。
+OpenUtau 与 Windows、macOS 和许多不同风格的 Linux 发行版兼容。
+<br/>
+<br/>
+<br/>
+<h3>声库支持</h3>
+OpenUtau 遵循与 UTAU 相同的格式。character.txt、oto.ini、prefix.map 等在安装语音库时都会被 OpenUtau 识别。
+<br/>
+“Singers” 文件夹不必遵循严格的结构。Singers 文件夹中包含character.txt的文件夹将被 OpenUtau 识别为语音库，而 UTAU 将仅识别其 “Singers” 文件夹第一层中的语音库。
+<br/>
+语音库设置（如子音色、默认音效符和其他唯一设置）保存在语音库内的character.yaml文件中。OpenUtau 中使用的语音库可以与其他 OpenUtau 用户共享，而无需进行复杂的设置。
+<br/>
+机器学习语音库可以产生更流畅的歌声，减少手动编辑，但需要GPU训练。OpenUtau 支持允许自己制作语音库的引擎：NNSVS , Vogen和 DiffSinger。要制作机器学习语音库，需要录制歌声，标记，并训练机器学习模型。
+<br/>
+<br/>
+<br/>
+<h3>安装与使用</h3>
+从Github上下载对应系统的版本。其中，Windows版仅支持Windows10以上的版本，Arch类Linux和Gentoo可以通过命令行安装。
+<br/>
+完成后，解压到文件夹。默认情况下，OpenUtau 将使用与您的计算机相同的语言，如果没有对应的翻译，则使用英语。可在 Tools > Preferences 手动更改语言。
+<br/>
+OpenUtau 提供了一个内部 wavtool 和一个重采样器 Worldline。要安装外部重采样器，请将重采样器.exe或.dll放入安装 OpenUtau 的“重采样器”文件夹中。如果系统中已有UTAU，则可以复制粘贴已有的重采样器。
+<br/>
+支持的重采样器
+<br/>
+f2resamp, fresamp, worldline, doppeltler, EFB, lessample, moresampler, phavoco, (_more_)
+<br/>
+支持的Wavtools（macOS和Linux不支持外部Wavtools）
+<br/>
+moresampler, wavtool, wavtool4vcv, (_more_)
+<br/>
+添加轨道后，您可以通过点击轨道标题右下角的设置齿轮来选择 resampler 和 wavtool。请注意，仅显示与当前所选重采样器兼容的 wavtools;例如，当选择 Worldline 时，只有 “simple” 和 “convergence” 可供选择。
+<br/>
+可以通过 Tools > Install Singer... 安装语音库。在非日本系统上，解压缩在日本系统上创建的 zip 文件通常会导致文件名乱码。
+<br/>
+Install Singer 工具有助于正确转换文件名。如果文件名可以正确解压缩，您也可以自行解压缩。
+<br/>
+安装语音库时，会弹出一个带有文件编码选项的窗口。
+<br/>
+如果您不确定声库的编码方式，您可以通过这个步骤来保证正确导入声库。
+<br/>
+安装语音库的另一种方法是将 Additional Singer Path 设置为包含歌手的现有文件夹，例如 UTAU 语音文件夹。然后，您可以在 Tools > Singers... 菜单中查看已安装的语音库。
+
+
+
+
+
+
+
+</div>
+
+</section>
+
+<br/>
+<!-- 页脚 -->
+
+<footer>
+<p>yuleeyeen_pjk</p>
+
+</footer>
+
+</body>
+
+</html>
